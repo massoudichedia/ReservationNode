@@ -3,7 +3,20 @@ import { login, register } from "../controllers/auth.js";
 
 const router = express.Router();
 
-router.post("/register", register)
-router.post("/login", login)
+// Afficher le formulaire de login
+router.get("/login", (req, res) => {
+  res.render("login");
+});
 
-export default router
+// Afficher le formulaire d'inscription
+router.get("/register", (req, res) => {
+  res.render("register");
+});
+
+// Traiter la soumission du formulaire d'inscription
+router.post("/register", register);
+
+// Traiter la soumission du formulaire de login
+router.post("/login", login);
+
+export default router;
